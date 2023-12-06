@@ -1,6 +1,6 @@
 package br.com.colman.petals.information
 
-import ExpandableComponent
+import br.com.colman.petals.components.ExpandableComponent
 import android.content.Context
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth

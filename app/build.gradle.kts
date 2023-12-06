@@ -44,7 +44,7 @@ android {
 
   defaultConfig {
     applicationId = "br.com.colman.petals"
-    minSdk = 21
+    minSdk = 26
     targetSdk = 34
     versionCode = 316000
     versionName = "3.16.0"
@@ -143,8 +143,16 @@ android {
 
 }
 
+configurations.all {
+  resolutionStrategy {
+    // Force a specific version for kotlinx-coroutines-core
+    force("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2")
+  }
+}
+
 dependencies {
-  // Kotlin
+  implementation(libs.androidx.junit.ktx)
+    // Kotlin
   testRuntimeOnly(libs.kotlin.reflect)
   testImplementation(libs.kotlinx.coroutines.test)
 
@@ -207,7 +215,23 @@ dependencies {
   testImplementation(libs.sqldelight.sqlite.driver)
   implementation(libs.requery.sqlite)
 
+  androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
+  debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
+  androidTestImplementation("io.mockk:mockk-android:1.12.0")
+  androidTestImplementation("androidx.test.ext:junit:1.1.3")
+  androidTestImplementation("androidx.test:runner:1.5.2")
+  androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2")
+  androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2")
+  androidTestImplementation ("androidx.test:core:1.5.0")
 
+  testImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
+  debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
+  testImplementation("io.mockk:mockk-android:1.12.0")
+  testImplementation("androidx.test.ext:junit:1.1.3")
+  testImplementation("androidx.test:runner:1.5.2")
+  testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2")
+  testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2")
+  testImplementation ("androidx.test:core:1.5.0")
   // Google Ads
   "playstoreImplementation"(libs.play.services.ads)
 

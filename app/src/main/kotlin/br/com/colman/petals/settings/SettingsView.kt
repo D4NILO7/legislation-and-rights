@@ -125,7 +125,7 @@ private fun RepositoryListItem() {
 
 @Preview
 @Composable
-private fun CurrencyListItem(
+fun CurrencyListItem(
   currency: String = "",
   setCurrency: (String) -> Unit = {}
 ) {
